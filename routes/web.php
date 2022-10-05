@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,3 +26,7 @@ Route::get('/about', function() {
 
 Route::get('/berita', [BeritaController::class, "index"]);
 Route::get("/berita/{slug}", [BeritaController::class, "show"]);
+
+// auth
+Route::get('/login', [LoginController::class, 'index'])->name("login")->middleware("guest");
+Route::get('/register', [RegisterController::class, 'index'])->name("register")->middleware("guest");

@@ -1,10 +1,12 @@
 <nav class="navbar navbar-expand-lg bg-white border border-bottom-3">
-    <div class="container">
+    <div class="container justify-content-center align-item-center">
+        <div>
         <a class="navbar-brand" href="#" style="font-size: 16px; font-weight: 700;">Menit.com</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
+        </div>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul style="font-size: 14px;" class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="/">Home</a>
@@ -16,6 +18,21 @@
                     <a class="nav-link" href="/berita">Berita</a>
                 </li>
             </ul>
+        </div>
+        <div>
+            @auth                
+            <div class="dropdown">
+                <div class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Welcome back, {{ auth()->user()->name }}
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-right"></i>Log out</a></li>
+                </ul>
+            </div>
+            
+            @else
+                <a href='/login' class="btn btn-sm btn-outline-secondary fs-small">login</a>
+            @endauth
         </div>
     </div>
 </nav>
