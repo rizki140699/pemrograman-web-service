@@ -4,7 +4,7 @@
     <form action="" class="col-md-3">
         <h4 class="fw-bold">Register</h4>
         <hr/>
-        <label for="nama" class="form-label" style="font-size: 12px; font-weight: 700;">Nama</label>
+        <label for="nama" class="form-label" style="font-size: 12px; font-weight: 700;">Name</label>
         <input
             type="text"
             id='nama'
@@ -12,6 +12,15 @@
             placeholder="Nama Lengkap"
             style="font-size: 14px;"/>
 
+        <label for="username" class="form-label mt-3" style="font-size: 12px; font-weight: 700;">Username</label>
+        <input 
+            type="text"
+            id='username'
+            class="form-control"
+            style="font-size: 14px;"
+            placeholder="Username"
+        />
+        
         <label for="email" class="form-label mt-3" style="font-size: 12px; font-weight: 700;">Email</label>
         <input 
             type="text"
