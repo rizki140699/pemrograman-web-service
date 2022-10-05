@@ -1,12 +1,14 @@
 <nav class="navbar navbar-expand-lg bg-white border border-bottom-3">
-    <div class="container justify-content-center align-item-center">
+    <div class="container d-flex justify-content-between align-items-center">
         <div>
-        <a class="navbar-brand" href="#" style="font-size: 16px; font-weight: 700;">Menit.com</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+            <a class="navbar-brand" href="#" style="font-size: 16px; font-weight: 700;">
+                <img src="/icon/eyes.png" alt="eyes"/>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
         </div>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <div class="collapse navbar-collapse b-1" id="navbarNavDropdown">
             <ul style="font-size: 14px;" class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="/">Home</a>
