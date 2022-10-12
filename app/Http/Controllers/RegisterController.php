@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pengguna;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -26,36 +27,20 @@ class RegisterController extends Controller
     public function create(Request $request)
     {
 
-        $input = $request->all();
-
         // validate user input
-
-        $request->validate([
+        $validatedData = $request->validate([
             'name' => 'required|max:50|string',
             'username' => 'required|max:50',
-            'email' => 'required|email|max:50',
+            'email' => 'required:dns|unique:users',
             'password' => 'required|max:50',
         ]);
 
         // encrypt password
-        $input['password'] = Hash::make($request->password);
+        $validatedData['password'] = Hash::make($validatedData['password']);
 
-        // check if user is not registered
+        User::create($validatedData);
 
-        $check = Pengguna::where('email', '=', $request->email)->get();
-
-        // send flash message if user already exists
-        if($check->count() > 0){
-            return redirect('/register')->with(['user-exists' => 'email telah terdaftar']);
-        }else{
-
-            // insert user into database
-
-            Pengguna::create($input);
-
-            // redirect to register page with message
-            return redirect("/register")->with(['register-success' => 'Berhasil mendaftar']);
-        }
+        return redirect("/register")->with(['register-success' => 'Berhasil mendaftar']);
 
 
     }

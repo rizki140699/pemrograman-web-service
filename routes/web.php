@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
@@ -29,5 +30,10 @@ Route::get("/berita/{slug}", [BeritaController::class, "show"]);
 
 // auth
 Route::get('/login', [LoginController::class, 'index'])->name("login")->middleware("guest");
+Route::post('/login/authenticate', [LoginController::class, 'create'])->name('login-auth');
 Route::get('/register', [RegisterController::class, 'index'])->name("register")->middleware("guest");
 Route::post('/register/new', [RegisterController::class, 'create'])->name('new-user');
+Route::post('/logout', [LoginController::class, 'logout']);
+
+// dashboard
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');

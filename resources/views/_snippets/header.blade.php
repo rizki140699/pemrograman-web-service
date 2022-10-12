@@ -28,7 +28,10 @@
                     Welcome back, {{ auth()->user()->name }}
                 </div>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-right"></i>Log out</a></li>
+                    <form action="/logout" method="POST">
+                        @csrf
+                        <li><button type="submit" class="dropdown-item" href="#"><i class="bi bi-box-arrow-right"></i>Log out</a></li>
+                    </form>
                 </ul>
             </div>
             
