@@ -30,7 +30,7 @@ class RegisterController extends Controller
         // validate user input
         $validatedData = $request->validate([
             'name' => 'required|max:50|string',
-            'username' => 'required|max:50',
+            'username' => 'required|max:50|unique:users',
             'email' => 'required:dns|unique:users',
             'password' => 'required|max:50',
         ]);
