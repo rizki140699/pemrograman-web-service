@@ -30,3 +30,4 @@ Route::get("/berita/{slug}", [BeritaController::class, "show"]);
 // auth
 Route::get('/login', [LoginController::class, 'index'])->name("login")->middleware("guest");
 Route::get('/register', [RegisterController::class, 'index'])->name("register")->middleware("guest");
+Route::post('/register/new', [RegisterController::class, 'create'])->name('new-user');
