@@ -22,6 +22,20 @@ class BeritaController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Berita  $berita
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Berita $berita, $slug)
+    {
+        //
+        return view("detail-berita", [
+            "berita" => Berita::where("slug", $slug)->first()
+        ]);
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -40,20 +54,6 @@ class BeritaController extends Controller
     public function store(StoreBeritaRequest $request)
     {
         //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Berita  $berita
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Berita $berita, $slug)
-    {
-        //
-        return view("detail-berita", [
-            "berita" => Berita::where("slug", $slug)->first()
-        ]);
     }
 
     /**

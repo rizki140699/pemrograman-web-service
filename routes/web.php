@@ -37,3 +37,6 @@ Route::post('/logout', [LoginController::class, 'logout']);
 
 // dashboard
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
+
+// dashboard
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
