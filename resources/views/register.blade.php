@@ -39,16 +39,6 @@
             placeholder="Nama Lengkap"
             style="font-size: 14px;"/>
 
-        <label for="username" class="form-label mt-3" style="font-size: 12px; font-weight: 700;">Username</label>
-        <input 
-            type="text"
-            name='username'
-            id='username'
-            class="form-control"
-            style="font-size: 14px;"
-            placeholder="Username"
-        />
-        
         <label for="email" class="form-label mt-3" style="font-size: 12px; font-weight: 700;">Email</label>
         <input 
             type="text"

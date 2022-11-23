@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pengguna;
-use App\Models\User;
+use App\Models\Berita;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 
-class RegisterController extends Controller
+class DashboardBeritaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +14,9 @@ class RegisterController extends Controller
      */
     public function index()
     {
-        return view('register');
+        return view("dashboard.berita.index", [
+            "data" => Berita::all(),
+        ]);
     }
 
     /**
@@ -24,24 +24,9 @@ class RegisterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-
-        // validate user input
-        $validatedData = $request->validate([
-            'name' => 'required|max:50|string',
-            'email' => 'required:dns|unique:users',
-            'password' => 'required|max:50',
-        ]);
-
-        // encrypt password
-        $validatedData['password'] = Hash::make($validatedData['password']);
-
-        User::create($validatedData);
-
-        return redirect("/register")->with(['register-success' => 'Berhasil mendaftar']);
-
-
+        //
     }
 
     /**
@@ -58,10 +43,10 @@ class RegisterController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Berita  $berita
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Berita $berita)
     {
         //
     }
@@ -69,10 +54,10 @@ class RegisterController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Berita  $berita
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Berita $berita)
     {
         //
     }
@@ -81,10 +66,10 @@ class RegisterController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Berita  $berita
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Berita $berita)
     {
         //
     }
@@ -92,10 +77,10 @@ class RegisterController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Berita  $berita
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Berita $berita)
     {
         //
     }
