@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Berita extends Model
 {
     use HasFactory;
+    protected $fillable = ['kategori_id', 'judul_berita', 'slug', 'excerpt', 'isi_berita', 'foto'];
     public function kategori(){
         return $this->belongsTo(Kategori::class);
     }

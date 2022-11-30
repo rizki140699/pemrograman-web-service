@@ -3,7 +3,13 @@
 <div class="row justify-content-center">
     <div class="col-md-10">
         <h3 class="mt-5">Halaman Berita</h3>
-        <a href='/' class="btn btn-primary mb-5">Berita Baru</a>
+        @if(session('success'))
+        <div class="alert bg-success">
+            {{ session('success') }}
+        </div>
+        @endif
+        <a href='/dashboard/berita/new' class="btn btn-primary mt-3">Berita Baru</a>
+        <hr/>
         <table id="example2" class="table table-bordered table-hover dataTable dtr-inline mt-3" aria-describedby="example2_info">
             <thead>
                 <tr>

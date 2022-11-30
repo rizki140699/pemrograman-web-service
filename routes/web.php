@@ -42,3 +42,5 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('aut
 // dashboard
 Route::get("/dashboard/berita", [DashboardBeritaController::class, 'index'])->middleware("auth");
 Route::get('/dashboard/berita/detail/{slug}', [DashboardBeritaController::class, 'show'])->middleware('auth');
+Route::get('/dashboard/berita/new', [DashboardBeritaController::class, 'create'])->middleware('auth');
+Route::post('/dashboard/berita/create', [DashboardBeritaController::class, 'store'])->middleware("auth");

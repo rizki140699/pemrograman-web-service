@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Berita;
+use App\Models\Kategori;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class DashboardBeritaController extends Controller
 {
@@ -26,7 +28,9 @@ class DashboardBeritaController extends Controller
      */
     public function create()
     {
-        //
+        return view("dashboard.berita.create", [
+            "kategori" => Kategori::all()
+        ]);
     }
 
     /**
@@ -37,7 +41,21 @@ class DashboardBeritaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validate = $request->validate([
+            'judul_berita' => 'required|max:50',
+            'kategori_id' => 'required',
+            'isi_berita' => 'required',
+            // 'foto' => 'required'
+
+        ]);
+        // preview berita
+        $validate['foto'] = 'test.jpg';
+        $validate['slug'] = Str::slug($request->judul_berita, '-');
+        $validate['excerpt'] = Str::limit(strip_tags($request->isi_berita), 100);
+
+        Berita::create($validate);
+
+        return redirect('/dashboard/berita')->with('success', 'Berita ' . $request->judul_berita .' berhasil ditambahkan');
     }
 
     /**
