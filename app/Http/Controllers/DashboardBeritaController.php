@@ -46,9 +46,11 @@ class DashboardBeritaController extends Controller
      * @param  \App\Models\Berita  $berita
      * @return \Illuminate\Http\Response
      */
-    public function show(Berita $berita)
+    public function show(Berita $berita, $slug)
     {
-        //
+        return view('dashboard.berita.detail', [
+            "berita" => Berita::where('slug', $slug)->first()
+        ]);
     }
 
     /**

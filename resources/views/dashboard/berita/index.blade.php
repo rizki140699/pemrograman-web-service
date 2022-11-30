@@ -20,9 +20,9 @@
                         <td>{{ $item->judul_berita }}</td>
                         <td>{{ $item->kategori->nama }}</td>
                         <td class="d-flex justify-content-between">
-                            <a type="button" class="btn btn-primary btn-sm"><i class="far fa-eye"></i></a>
-                            <a type="button" class="btn btn-warning btn-sm ms-2 me-2"><i class="far fa-edit"></i></a>
-                            <a type="button" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a>
+                            <a href='/dashboard/berita/detail/{{ $item->slug }}' class="btn btn-primary btn-sm"><i class="far fa-eye"></i></a>
+                            <a href='/' class="btn btn-warning btn-sm ms-2 me-2"><i class="far fa-edit"></i></a>
+                            <a href='/' class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a>
                         </td>
                     </tr>
                 @endforeach
