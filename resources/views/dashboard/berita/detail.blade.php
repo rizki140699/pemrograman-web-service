@@ -13,7 +13,10 @@
         <hr/>
         <a class='btn btn-success' href='/dashboard/berita'>Kembali</a>
         <a class="btn btn-warning" href=''>Edit</a>
-        <a class='btn btn-danger' href=''>Hapus</a>
+        <form action="/dashboard/berita/delete" method="POST">
+            @method('delete')
+            <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+        </form>
     </div>
 </div>
 @endsection

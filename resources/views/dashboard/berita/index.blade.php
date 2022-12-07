@@ -28,7 +28,10 @@
                         <td class="d-flex justify-content-between">
                             <a href='/dashboard/berita/detail/{{ $item->slug }}' class="btn btn-primary btn-sm"><i class="far fa-eye"></i></a>
                             <a href='/' class="btn btn-warning btn-sm ms-2 me-2"><i class="far fa-edit"></i></a>
-                            <a href='/' class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a>
+                            <form action="/dashboard/berita/delete" method="POST">
+                                @method('delete')
+                                <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach

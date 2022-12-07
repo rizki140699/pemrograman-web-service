@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Berita;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class DashboardBeritaController extends Controller
@@ -102,6 +103,15 @@ class DashboardBeritaController extends Controller
      */
     public function destroy(Berita $berita)
     {
-        //
+
+        // menghapus foto
+        if($berita->foto){
+            Storage::destroy($berita->foto);
+        }
+
+        // menghapus data dari database
+        Berita::destroy($berita->id);
+
+        return redirect('/dashboard/berita')->with('delete-success', 'berita'. $berita->judul_berita .' berhasil dihapus');
     }
 }
