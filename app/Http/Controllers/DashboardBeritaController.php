@@ -101,16 +101,16 @@ class DashboardBeritaController extends Controller
      * @param  \App\Models\Berita  $berita
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Berita $berita)
+    public function destroy(Berita $berita, $id)
     {
 
         // menghapus foto
-        if($berita->foto){
-            Storage::destroy($berita->foto);
-        }
+        // if($berita->foto){
+        //     Storage::destroy($berita->foto);
+        // }
 
         // menghapus data dari database
-        Berita::destroy($berita->id);
+        Berita::destroy($id);
 
         return redirect('/dashboard/berita')->with('delete-success', 'berita'. $berita->judul_berita .' berhasil dihapus');
     }
