@@ -4,7 +4,7 @@
     <div class="col-md-10">
         <h3 class="mt-5">Berita Baru</h3>
         <hr/>
-        <form action="/dashboard/berita/create" method="POST">
+        <form action="/dashboard/berita/create" method="POST" enctype="multipart/form-data">
             @csrf
             <label for="judul">Judul Berita</label>
             <input id='judul' type="text" placeholder="Masukan Judul Berita" name='judul_berita' class="form-control"/>

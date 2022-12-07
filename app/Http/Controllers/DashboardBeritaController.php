@@ -45,11 +45,11 @@ class DashboardBeritaController extends Controller
             'judul_berita' => 'required|max:50',
             'kategori_id' => 'required',
             'isi_berita' => 'required',
-            // 'foto' => 'required'
+            'foto' => 'required|file'
 
         ]);
         // preview berita
-        $validate['foto'] = 'test.jpg';
+        $validate['foto'] = $request->file('foto')->store('berita-foto');
         $validate['slug'] = Str::slug($request->judul_berita, '-');
         $validate['excerpt'] = Str::limit(strip_tags($request->isi_berita), 100);
 

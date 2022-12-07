@@ -5,7 +5,7 @@
         <h3 class="mt-5">{{ $berita->judul_berita }}</h3>
         <hr/>
         <div class="col-md-5">
-            <img class="img-fluid" src="{{ $berita->foto }}"/>
+            <img class="img-fluid" src="{{ asset('storage' .  $berita->foto) }}"/>
         </div>
         <p>
             {{ $berita->isi_berita }}
