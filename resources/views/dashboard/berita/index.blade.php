@@ -20,9 +20,9 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($data as $item)    
+                @foreach ($data as $key => $item)    
                     <tr>
-                        <td>1</td>
+                        <td>{{ $key + 1 }}</td>
                         <td>{{ $item->judul_berita }}</td>
                         <td>{{ $item->kategori->nama }}</td>
                         <td class="d-flex justify-content-between">
