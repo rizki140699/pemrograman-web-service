@@ -25,6 +25,12 @@
                 Berita
               </p>
             </a>
+            <a href="/dashboard/kategori" class="nav-link {{ Request::is('dashboard/kategori*')?'active' : '' }}">
+              <i class="nav-icon fas fa-file-alt"></i>
+            <p>
+              Kategori
+            </p>
+          </a>
           </li>
         </ul>
       </nav>
