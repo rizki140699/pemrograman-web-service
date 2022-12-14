@@ -133,6 +133,6 @@ class DashboardBeritaController extends Controller
         // menghapus data dari database
         Berita::destroy($id);
 
-        return redirect('/dashboard/berita')->with('delete-success', 'berita'. $berita->judul_berita .' berhasil dihapus');
+        return redirect('/dashboard/berita')->with('success', 'berita'. $berita->judul_berita .' berhasil dihapus');
     }
 }
