@@ -113,7 +113,7 @@ class DashboardBeritaController extends Controller
 
         Berita::where('id', $id)->update($validate);
 
-        return redirect('/dashboard/berita')->with('success', 'Berita ' . $request->judul_berita .' berhasil diupdate');
+        return redirect('/dashboard/berita')->with('success', 'Berita berhasil diupdate menjadi ' . $request->judul_berita);
     }
 
     /**
