@@ -45,3 +45,5 @@ Route::get('/dashboard/berita/detail/{slug}', [DashboardBeritaController::class,
 Route::get('/dashboard/berita/new', [DashboardBeritaController::class, 'create'])->middleware('auth');
 Route::post('/dashboard/berita/create', [DashboardBeritaController::class, 'store'])->middleware("auth");
 Route::delete('/dashboard/berita/delete/{id}', [DashboardBeritaController::class, 'destroy'])->middleware('auth');
+Route::get('/dashboard/berita/edit/{id}', [DashboardBeritaController::class, 'edit'])->middleware('auth');
+Route::put('/dashboard/berita/update/{id}', [DashboardBeritaController::class, 'update'])->middleware("auth");

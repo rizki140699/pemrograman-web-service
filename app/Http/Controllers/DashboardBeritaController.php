@@ -78,9 +78,12 @@ class DashboardBeritaController extends Controller
      * @param  \App\Models\Berita  $berita
      * @return \Illuminate\Http\Response
      */
-    public function edit(Berita $berita)
+    public function edit(Berita $berita, $slug)
     {
-        //
+        return view('dashboard.berita.update', [
+            "berita" => Berita::find($slug),
+            "kategori" => Kategori::all(),
+        ]);
     }
 
     /**
@@ -90,9 +93,27 @@ class DashboardBeritaController extends Controller
      * @param  \App\Models\Berita  $berita
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Berita $berita)
+    public function update(Request $request, Berita $berita, $id)
     {
-        //
+        $validate = $request->validate([
+            'judul_berita' => 'required|max:50',
+            'kategori_id' => 'required',
+            'isi_berita' => 'required',
+        ]);
+
+        // cek apakah foto dikirimkan atau tidak
+        if($request->hasFile("foto")){
+
+            $validate['foto'] = $request->file('foto')->store('berita-foto');
+        }
+
+        // 
+        $validate['slug'] = Str::slug($request->judul_berita, '-');
+        $validate['excerpt'] = Str::limit(strip_tags($request->isi_berita), 100);
+
+        Berita::where('id', $id)->update($validate);
+
+        return redirect('/dashboard/berita')->with('success', 'Berita ' . $request->judul_berita .' berhasil diupdate');
     }
 
     /**

@@ -27,7 +27,7 @@
                         <td>{{ $item->kategori->nama }}</td>
                         <td class="d-flex justify-content-between">
                             <a href='/dashboard/berita/detail/{{ $item->slug }}' class="btn btn-primary btn-sm"><i class="far fa-eye"></i></a>
-                            <a href='/' class="btn btn-warning btn-sm ms-2 me-2"><i class="far fa-edit"></i></a>
+                            <a href='/dashboard/berita/edit/{{ $item->id }}' class="btn btn-warning btn-sm ms-2 me-2"><i class="far fa-edit"></i></a>
                             <form action="/dashboard/berita/delete/{{ $item->id }}" method="POST">
                                 @csrf
                                 @method('delete')
